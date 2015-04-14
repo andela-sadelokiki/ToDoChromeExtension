@@ -3,7 +3,7 @@
     <head lang = "en">
       <meta charset= utf-8/>
       <title> TODO List App </title>
-      <link rel= "stylesheet" type="text/css" href = "../css/materialize.css" >
+      <link rel= "stylesheet" type="text/css" href = "css/materialize.css" >
      <!-- <link rel="stylesheet" type="text/css" href="css/todo.css">
       <script src="lib/angular/angular.js"></script> -->
        
@@ -41,8 +41,9 @@
                         <input type="checkbox" id="{{todo.text}}" ng-model="todo.done" />
 
                         <label for="{{todo.text}}">{{todo.text}}</label>                                                
-                        <i class="mdi-content-clear"  ng-click="delete()"></i>
+                        
                         <strong class = "taskDate done-{{todo.done}}">{{todo.date|date:'mediumDate'}}</strong>
+                        <i class="mdi-content-clear"  ng-click="delete()"></i>
                       </p>
 
                     </li>

@@ -6,12 +6,18 @@ app.controller('ToDoCtrl', ['$scope',
     $scope.today = new Date();
     $scope.newTaskDate = '';
 
-   
-
-    $scope.todoList = [
-      {text:'Watch Furious',done: false,  date:$scope.newTaskDate},
-      {text:'Build a Todo App', done:false}
-    ];
+    if(localStorage.getItem("todoList") === null)
+        {
+          $scope.todoList = [
+          {text:'Watch Furious',done: false,  date:$scope.newTaskDate},
+          {text:'Build a Todo App', done:false}
+        ];
+        localStorage.setItem("todoList", angular.toJson($scope.todoList));
+        }
+    else
+        {
+          $scope.todoList = angular.fromJson(localStorage.getItem("todoList"));
+        }
 
    
 
@@ -24,9 +30,11 @@ app.controller('ToDoCtrl', ['$scope',
         else{
           if($scope.newTask !== "")
             {
-               $scope.todoList.push({text:$scope.newTask , done: false , date:$scope.newTaskDate });
+               $scope.todoList.push({text:$scope.newTask , date:$scope.newTaskDate, done: false  });
               $scope.newTask = "";
+
             }
+            localStorage.setItem("todoList", angular.toJson($scope.todoList));
     } 
      };
 
@@ -39,6 +47,7 @@ app.controller('ToDoCtrl', ['$scope',
             if (!todo.done) {
                 $scope.todoList.push(todo);
             }
+            localStorage.setItem("todoList", angular.toJson($scope.todoList));
         });
         
       
