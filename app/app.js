@@ -32,9 +32,7 @@ app.controller('ToDoCtrl', ['$scope',
 
 
      $scope.delete= function(index){
-      //$scope.todoList = _.filter($scope.todoList, //function(todo){
-      //return !todo.done;
-    //});
+      
        var completedTask = $scope.todoList;
         $scope.todoList = [];
         angular.forEach(completedTask, function (todo) {

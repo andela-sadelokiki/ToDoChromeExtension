@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "To do List Manager",
+  "description": "To do chrome extension",
+  "short name": "To do",
+  "version": "0.1",
+  "browser_action": {
+    "default_popup": "index.html",
+    
+  }
+}
