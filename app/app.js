@@ -6,13 +6,7 @@ app.controller('ToDoCtrl', ['$scope',
     $scope.today = new Date();
     $scope.newTaskDate = '';
 
-    $scope.categories = [
-    {name: 'Personal'}, 
-    {name:'work'},
-    {name:'other'}
-    ];
-
-    $scope.newTaskCategory = $scope.categories;
+   
 
     $scope.todoList = [
       {text:'Watch Furious',done: false,  date:$scope.newTaskDate},
@@ -22,8 +16,7 @@ app.controller('ToDoCtrl', ['$scope',
    
 
      $scope.addTask = function(){
-      //console.log('newTask: ', $scope.newTask);
-      //$scope.newTask.trim();
+      
         if($scope.newTaskDate === null || $scope.newTaskDate === '' )
            {
               alert("input due date!");
@@ -31,7 +24,7 @@ app.controller('ToDoCtrl', ['$scope',
         else{
           if($scope.newTask !== "")
             {
-               $scope.todoList.push({text:$scope.newTask , done: false , date:$scope.newTaskDate , category: $scope.newTaskCategory.name});
+               $scope.todoList.push({text:$scope.newTask , done: false , date:$scope.newTaskDate });
               $scope.newTask = "";
             }
     } 

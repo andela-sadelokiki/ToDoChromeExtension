@@ -21,26 +21,6 @@
                   <div class="section">
                     <input type="text" id="description" class="taskname" placeholder="What do you need to do?" ng-model="newTask">              
                   </div>
-                  <div class = "section">
-                               <label>Materialize Disabled</label>
-  <select disabled>
-    <option value="" disabled selected>Choose your option</option>
-    <option value="1">Option 1</option>
-    <option value="2">Option 2</option>
-    <option value="3">Option 3</option>
-  </select>
-                    <select id="category" class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories.">
-                    <option value="">Choose a category</option>
-                    </select>
-                    <label for = "category">Category</label>
-                  </div>
-                  <div class="inputContainer half last"> <i class="fa fa-caret-down selectArrow"></i>
-                    <select id="category" class="taskCategory" ng-model="newTaskCategory" ng-options="obj.name for obj in categories">
-                      <option class="disabled" value="">Choose a category</option>
-                        </select>
-                        <label for="category">Category</label>
-                  </div>
-
                   <div class= "section">
                     <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
                     <label for="dueDate">Due Date</label>
@@ -53,13 +33,14 @@
                   <form action="#" >
                     <li ng-repeat= "todo in todoList">
                       <p>
-                        <button class="button button-block button-assertive" ng-click="delete()">
-                        DeleteItem</button>
+                        
+                        
                         <input type="checkbox" id="{{todo.text}}" ng-model="todo.done" />
 
-                        <label for="{{todo.text}}">{{todo.text}}</label>
+                        <label for="{{todo.text}}">{{todo.text}}</label>   <i class="mdi-action-highlight-remove"  ng-click="delete()"></i>
                         <strong class = "taskDate done-{{todo.done}}">{{todo.date|date:'mediumDate'}}</strong>
                       </p>
+
                     </li>
                   </form>     
                       
