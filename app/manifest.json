@@ -3,19 +3,10 @@
   "name": "To do List Manager",
   "description": "To do chrome extension",
   "version": "0.1",
-  "browser_action": {
-    "default_popup": "index.html"
-
-  },
   "app":{
     "launch": {
-      "local_path": "index.html"
+                  "local_path": "index.html"
+               }
         }
-    },
-  "permissions": [
-  "debugger", 
-  "storage"
-  ],
-
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  
 }
