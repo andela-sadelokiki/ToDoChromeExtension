@@ -1,6 +1,6 @@
 body{
-  background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSFKwbB3H7Qs8zhC0913Kmh3-DyvXmloE6ez7t-57QaWi77GomRVg");
+  background-image: 
   }
-  #section{
-    color: white;
-  }
+select{
+  display: block;
+}
