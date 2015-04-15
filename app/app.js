@@ -29,29 +29,28 @@ app.controller('ToDoCtrl', ['$scope',
           $scope.todoList = angular.fromJson(localStorage.getItem("todoList"));
         }
      
-     $scope.addTask = function(){
+    $scope.addTask = function(){
 
         
-          var today = new Date(Date.now()).setHours(0,0,0);
-          var newDate = new Date($scope.newTaskDate);
+        var today = new Date(Date.now()).setHours(0,0,0);
+        var newDate = new Date($scope.newTaskDate);
         
         
-          if($scope.newTask !== "")
-            {
-    
-              if($scope.newTaskDate === null || $scope.newTaskDate === '' )
-                {
-                  alert("input due date!");
-                }
-                else if( newDate < today )
-                  {
-                    alert("invalid date");
-                  }
-              else
-                {
-                  $scope.todoList.push({text:$scope.newTask , date:$scope.newTaskDate, done: false, priority:"Important" });
+    if($scope.newTask !== "")
+      {
+        if($scope.newTaskDate === null || $scope.newTaskDate === '' )
+          {
+             alert("input due date!");
+          }
+        else if( newDate < today )
+          {
+             alert("invalid date");
+          }
+        else
+         {
+            $scope.todoList.push({text:$scope.newTask , date:$scope.newTaskDate, done: false, priority:"Important" });
                   $scope.newTask = "";
-                }
+         }
             }
           else{
                   alert("input new task!")

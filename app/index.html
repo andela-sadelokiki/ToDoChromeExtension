@@ -3,92 +3,63 @@
     <head lang = "en">
       <meta charset= utf-8/>
       <title> TODO List App </title>
-      
-     <!--<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">-->
-     <link rel= "stylesheet" type="text/css" href = "css/materialize.css">
-     <link rel="stylesheet" type="text/css" href="css/todo.css">
-     
-       
-    <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script> -->
-    
-
-
-    </head>
-      <body class=" brown lighten-1">
-        <div >
-          <div class="container ">
-            <div ng-controller="ToDoCtrl">
-              <div class="row">
-              <div class= >
-                <h3 class = "center-align">Todo List Manager</h3>
-                <p class = "center-align"><i style ="font-size: 25px">organise your life...</i></p>
-                </div>
-                <div class="col s6">
-                  <div >
-                  <i class="large mdi-notification-event-note"></i><h5 id="Title">Your Plans?</h5>
-                    <div class="grid-example col s12 m6" align="left"> 
-                      <input type = "text" id = "description" ng-model="newTask" placeholder="Got to do">
-
-                        <div class= "section ">
-                          <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
-                          <label for="dueDate">Due Date</label>
-                        </div>
+      <link rel= "stylesheet" type="text/css" href = "css/materialize.css">
+      <link rel="stylesheet" type="text/css" href="css/todo.css">
+      </head>
+        <body class=" purple accent-4">
+          <div>
+            <div class="container ">
+              <div ng-controller="ToDoCtrl">
+                <div class="row">
+                  <div class= >
+                    <h3 class = "center-align">Todo List Manager</h3>
+                      <p class = "center-align"><i style ="font-size: 25px">organise your life...</i></p>
+                  </div>
+                  <div class="col s6">
+                    <div>
+                      <i class="large mdi-notification-event-note"></i><h5 id="Title">Your Plans?</h5>
+                        <div class="grid-example col s12 m6" align="left"> 
+                          <input type = "text" id = "description" ng-model="newTask" placeholder="Got to do">
+                            <div class= "section ">
+                              <input type="date" id="dueDate" class="taskDate" ng-model="newTaskDate">
+                              <label for="dueDate">Due Date</label>
+                            </div>
+                          </div>
+                          <div class="grid-example col s12 m6" align="left"> 
+                            <div class="input-field col s12" >
+                              <select >
+                                <option value="" disabled selected >Choose your option</option>
+                                  <!--<option ng-model = "{{name.priority}}" ng-repeat="priority in priorities"></option>-->
+                              </select>
+                            </div>
+                          </div>
+                          <div class="grid-example col s12 m12">
+                            <a class="waves-effect waves-light btn" ng-click="addTask()">Add Task</a> 
+                          </div>
                     </div>
-                     <div class="grid-example col s12 m6" align="left"> 
-                       <!-- <div class="form-group"> -->
-                  <!--  <select class="form-contjjrol input-sm msg" ng-model="priorities" ng-options="obj.priority for obj in $scope.priorities">
-                      <option value="" ng-repeat="priority in priorities" >{{priority.priority}}</option>
-                   </select> -->
-                  <!--  </div> -->
-                <div class="input-field col s12" >
-                  <select >
-                    <!--
-                    <option ng-model="{{priority.priority}}" ng-repeat="priority in priorities">{{priority.priority}}</option>-->
-                    <option value="" disabled selected >Choose your option</option>
-                    <option ng-model = "{{name.priority}}" ng-repeat="priority in priorities">{{name.priority}}</option>
-
-                  </select>
-                </div>
-
-                </div>
-
-                    <div class="grid-example col s12 m12">
-                      <a class="waves-effect waves-light btn" ng-click="addTask()">Add Task</a> 
+                  </div>
+                  <div class="col s6" >
+                    <div class="container">
+                      <i class="large mdi-action-note-add"></i><h5 id="Title">Things to do</h5>
+                        <form action="#" >
+                          <li ng-repeat= "todo in todoList">
+                            <p>
+                              <input type="checkbox" id="{{todo.text}}" ng-model="todo.done" />
+                                <label for="{{todo.text}}">{{todo.text}}</label>
+                                  <span class="priority-">{{todo.name}}</span>
+                                    <strong class = "taskDate done-{{todo.done}}" style ="font-size: 15px">{{todo.date|date:'mediumDate'}}</strong>
+                            </p>
+                          </li>
+                        </form>  
+                          <a class="waves-effect waves-light btn" ng-click="delete()">Delete Selected Task</a>
                     </div>
-                    </div>
-                </div>
-                <div class="col s6" >
-                  <div class="container">
-                    <i class="large mdi-action-note-add"></i><h5 id="Title">Things to do</h5>
-
-                    <form action="#" >
-                    <li ng-repeat= "todo in todoList">
-                      <p>
-                        
-                        
-                        <input type="checkbox" id="{{todo.text}}" ng-model="todo.done" />
-
-                        <label for="{{todo.text}}">{{todo.text}}</label>                                                
-                        
-                        <span class="priority-">{{todo.name}}</span>
-                        <strong class = "taskDate done-{{todo.done}}" style ="font-size: 15px">{{todo.date|date:'mediumDate'}}</strong>
-                        
-                      </p>
-
-                    </li>
-
-                  </form>  
-                  <a class="waves-effect waves-light btn" ng-click="delete()">Delete Selected Task</a>
                   </div>
                 </div>
-              </div>
-            </div>       
-          </div>        
-        </div>
-        <script src="angular.js"></script>
-        <script src="app.js"></script>
-        <script src="materialize.js"></script>
-       
-      </body>
-
+              </div>       
+            </div>        
+          </div>
+          <script src="angular.js"></script>
+          <script src="app.js"></script>
+          <script src="materialize.js"></script>
+        </body>
   </html>
