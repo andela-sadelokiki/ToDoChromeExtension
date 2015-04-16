@@ -9,6 +9,12 @@ app.controller('ToDoCtrl', ['$scope',
     {name: "Very Important"}
     ];
 
+   
+ /*$scope.change = function()
+               {
+                   alert($scope.opt.name);
+          };*/
+
     //$scope.myPriority = $scope.priorities[1].priority;
     
     
@@ -19,13 +25,14 @@ app.controller('ToDoCtrl', ['$scope',
     if(localStorage.getItem("todoList") === null)
         {
           $scope.todoList = [
-          {text:'Watch Furious',done: false,  date:$scope.newTaskDate },
-          {text:'Build a Todo App', done:false,  priority:"Important"}
+          {text:'Watch Furious',done: false,  date:$scope.newTaskDate, },
+          {text:'Build a Todo App', done:false,  }
         ];
         localStorage.setItem("todoList", angular.toJson($scope.todoList));
         }
     else
         {
+          
           $scope.todoList = angular.fromJson(localStorage.getItem("todoList"));
         }
      
@@ -38,7 +45,9 @@ app.controller('ToDoCtrl', ['$scope',
         
     if($scope.newTask !== "")
       {
-        if($scope.newTaskDate === null || $scope.newTaskDate === '' )
+       
+     
+        if($scope.newTaskDate == false )
           {
              alert("input due date!");
           }
@@ -48,16 +57,20 @@ app.controller('ToDoCtrl', ['$scope',
           }
         else
          {
-            $scope.todoList.push({text:$scope.newTask , date:$scope.newTaskDate, done: false, priority:"Important" });
+            
+            $scope.todoList.push({text:$scope.newTask , date:$scope.newTaskDate, done: false, priority:"Important" , priority: $scope.opt.name});
+            
                   $scope.newTask = "";
+                  
          }
-            }
-          else{
-                  alert("input new task!")
-            }
+       }
+        
+    else
+        {
+            alert("input new task!")
+        }
             localStorage.setItem("todoList", angular.toJson($scope.todoList));
-     
-     };
+       };   
 
 
      $scope.delete= function(index){

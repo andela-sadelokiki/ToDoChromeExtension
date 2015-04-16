@@ -6,16 +6,18 @@
       <link rel= "stylesheet" type="text/css" href = "css/materialize.css">
       <link rel="stylesheet" type="text/css" href="css/todo.css">
       </head>
-        <body class=" purple accent-4">
+        <body>
           <div>
             <div class="container ">
               <div ng-controller="ToDoCtrl">
                 <div class="row">
-                  <div class= >
+                  <div class="subtitle">
                     <h3 class = "center-align">Todo List Manager</h3>
-                      <p class = "center-align"><i style ="font-size: 25px">organise your life...</i></p>
+                      <div>
+                      <p class = "center-align"><i style ="font-size: 25px">every second counts...</i></p>
+                      </div>
                   </div>
-                  <div class="col s6">
+                  <div class="col s6" id="plans">
                     <div>
                       <i class="large mdi-notification-event-note"></i><h5 id="Title">Your Plans?</h5>
                         <div class="grid-example col s12 m6" align="left"> 
@@ -27,32 +29,31 @@
                           </div>
                           <div class="grid-example col s12 m6" align="left"> 
                             <div class="input-field col s12" >
-                              <select >
+                              <select ng-model="opt" ng-options="priority.name for priority in priorities" ng-change = "change()"> 
                                 <option value="" disabled selected >Choose your option</option>
                                   <!--<option ng-model = "{{name.priority}}" ng-repeat="priority in priorities"></option>-->
                               </select>
                             </div>
                           </div>
                           <div class="grid-example col s12 m12">
-                            <a class="waves-effect waves-light btn" ng-click="addTask()">Add Task</a> 
+                            <a class="waves-effect waves-light btn add" ng-click="addTask()">Add Task</a> 
                           </div>
                     </div>
                   </div>
-                  <div class="col s6" >
-                    <div class="container">
+                  <div class="col s6 ttd" id="todo">
                       <i class="large mdi-action-note-add"></i><h5 id="Title">Things to do</h5>
                         <form action="#" >
-                          <li ng-repeat= "todo in todoList">
-                            <p>
-                              <input type="checkbox" id="{{todo.text}}" ng-model="todo.done" />
-                                <label for="{{todo.text}}">{{todo.text}}</label>
-                                  <span class="priority-">{{todo.name}}</span>
-                                    <strong class = "taskDate done-{{todo.done}}" style ="font-size: 15px">{{todo.date|date:'mediumDate'}}</strong>
+                        
+                          
+                            <p ng-repeat= "todo in todoList">
+                              <input type="checkbox" id="{{todo.text}}" class="qw" ng-model="todo.done" />
+                                <label for="{{todo.text}}" class="susan">{{todo.text}}</label> <strong class = "taskDate done-{{todo.done}}" style ="font-size: 15px"> on {{todo.date|date:'mediumDate'}} | {{todo.priority}}</strong>
+                                 
                             </p>
-                          </li>
+                          
                         </form>  
-                          <a class="waves-effect waves-light btn" ng-click="delete()">Delete Selected Task</a>
-                    </div>
+                          <a class="waves-effect waves-light btn delete" ng-click="delete()">Delete Selected Task</a>
+                    
                   </div>
                 </div>
               </div>       

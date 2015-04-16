@@ -1,5 +1,6 @@
 exports.config = {
   allScriptsTimeout: 11000,
+  chromeOnly: true,
 
   specs: [
     '*.js'
